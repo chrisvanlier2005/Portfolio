@@ -1,0 +1,53 @@
+<script setup>
+import SectionTitle from "@/Components/Typography/SectionTitle.vue";
+import GridItemSmall from "@/Components/Grid/GridItemSmall.vue";
+import GridItemLarge from "@/Components/Grid/GridItemLarge.vue";
+import GridCardSmall from "@/Components/Grid/Cards/GridCardSmall.vue";
+import GridCardLarge from "@/Components/Grid/Cards/GridCardLarge.vue";
+import ButtonMedium from "@/Components/Buttons/ButtonMedium.vue";
+import RGBRibbon from "@/Components/Styling/RGBRibbon.vue";
+
+defineProps({
+    projects: Array
+})
+</script>
+<template>
+    <section class="z-[99] relative">
+        <section-title>Recent Projects</section-title>
+        <p>Interested to see what i've been doing? Here are my most recent projects!</p>
+        <!--   Had to make it projects[0][key] because of passing props in a weird way... if it works it works     -->
+        <div class="z-1 grid grid-cols-1 md:grid-cols-2 grid-rows-2 h-[110rem] md:h-[40rem] gap-7 py-4 relative">
+            <GridItemSmall class="md:hidden">
+
+                <GridCardSmall  v-if="projects[0]" :project="projects[0]"></GridCardSmall>
+            </GridItemSmall>
+            <GridItemLarge class="hidden md:block">
+                <GridCardLarge v-if="projects[0]" :project="projects[0]"></GridCardLarge>
+            </GridItemLarge>
+            <GridItemSmall>
+                <GridCardSmall v-if="projects[1]" :project="projects[1]" ></GridCardSmall>
+            </GridItemSmall>
+            <GridItemSmall>
+                <GridCardSmall v-if="projects[2]" :project="projects[2]" ></GridCardSmall>
+            </GridItemSmall>
+        </div>
+        <r-g-b-ribbon style="
+            transform: skew(30deg, 0deg) rotate(-160deg) scaleY(1.5);
+            top: 50%;
+            left: -50%" class="z-[-1]"></r-g-b-ribbon>
+        <div class="w-full flex justify-center pb-3">
+            <ButtonMedium :href="route('projects.index')" as="a">Want to see more?</ButtonMedium>
+        </div>
+    </section>
+</template>
+
+<script>
+
+export default {
+    name: "Projects"
+};
+</script>
+
+<style scoped>
+
+</style>
