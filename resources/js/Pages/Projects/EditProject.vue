@@ -6,6 +6,8 @@ import Editor from "@/Components/Typography/Editor.vue";
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { onMounted, ref } from "vue";
 import ButtonSmall from "@/Components/Buttons/ButtonSmall.vue";
+
+
 const form = useForm({
     title: '',
     description: '',
@@ -27,8 +29,8 @@ const uploadImage = () => {
 const getSrcAttr = (link) => {
     return link.replace("public", "/storage")
 }
-const showImageForm = ref(false);
 
+const showImageForm = ref(false);
 const makeThumbnailForm = useForm({
     id: null,
 })
@@ -36,6 +38,7 @@ const makeThumbnail = (id) => {
     makeThumbnailForm.id = id
     makeThumbnailForm.post('/images/thumbnail');
 }
+
 </script>
 <template>
     <Head>
@@ -108,7 +111,7 @@ const makeThumbnail = (id) => {
                         <section class="grid grid-cols-2">
                             <!--             Images and Thumbnails               -->
                             <div v-for="image in project.images" class="w-full h-24 bg-gray-100">
-                                <img :src="getSrcAttr(image.src)" alt="image" class="aspect-square object-cover rounded-xl"/>
+                                <img :src="getSrcAttr(image.src)" @click="addImage(image.src)" alt="image" class="aspect-square object-cover rounded-xl"/>
                                 <button @click="makeThumbnail(image.id)" ></button>
                             </div>
 

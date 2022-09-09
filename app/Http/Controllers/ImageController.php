@@ -14,6 +14,7 @@ class ImageController extends Controller
         $images = Image::limit(10)->get();
         return response()->json($images);
     }
+
     public function storeImage(Request $request)
     {
         $id = $request->id;
@@ -26,6 +27,7 @@ class ImageController extends Controller
 
         return redirect()->route('projects.edit', $id);
     }
+
     public function makeThumbnail(Request $request){
         $image = $this->getImageById($request->id);
         $image->update([
@@ -33,6 +35,7 @@ class ImageController extends Controller
         ]);
         return redirect()->route('projects.edit', $request->id);
     }
+
     public function removeThumbnail(Request $request){
         $image = $this->getImageById($request->id);
         $image->update([
@@ -40,6 +43,7 @@ class ImageController extends Controller
         ]);
         return redirect()->route('projects.edit', $request->id);
     }
+
     public function getImageById($id){
         return Image::findOrFail($id);
     }

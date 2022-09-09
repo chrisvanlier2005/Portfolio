@@ -1,5 +1,4 @@
 <script setup>
-// todo: fix this Garbage code :'(
 import { onMounted, ref } from "vue";
 import FadedCircle from "@/Components/Styling/FadedCircle.vue";
 import RGBRibbon from "@/Components/Styling/RGBRibbon.vue";
@@ -7,9 +6,8 @@ import GlassShapes from "@/Components/Styling/GlassShapes.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import ButtonSmall from "@/Components/Buttons/ButtonSmall.vue";
 import HalftoneBackground from "@/Components/Styling/HalftoneBackground.vue";
+
 let name = ref(null);
-
-
 let firstLetterToRGB = (el) => {
     let colors = [
         "255,0,0",
@@ -41,7 +39,6 @@ let firstLetterToRGB = (el) => {
     }
 }
 
-// birthday
 let birthday = new Date('Juli 12, 2005')
 let date = new Date();
 let age = date.getFullYear() - birthday.getFullYear();
@@ -53,13 +50,11 @@ onMounted(() => {
 <template>
     <div class="relative">
         <div class="screen w-full flex items-center">
-
             <!--     Main content       -->
             <div class="z-10">
                 <h1 ref="name" class="text-3xl md:text-6xl font-bold z-[99] filter-shadow text-center md:text-left">Chris van Lier</h1>
                 <p class="font-medium text-center md:text-left filter-shadow">Hello, i'm a <span class="text-pink-500">full-stack</span> student developer.</p>
                 <p class="mb-3 text-center md:text-left filter-shadow">Also i'm <span class="text-amber-400">{{ age }}</span> Years old.</p>
-                <button-small :href="route('internship')" as="button">Currently looking for an internship</button-small>
             </div>
             <halftone-background></halftone-background>
             <!--     Faded circles in the background       -->
@@ -72,7 +67,6 @@ onMounted(() => {
             right: -40%;"></r-g-b-ribbon>
         </div>
     </div>
-
 </template>
 
 <script>
