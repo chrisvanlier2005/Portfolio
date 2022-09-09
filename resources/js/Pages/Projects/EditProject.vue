@@ -39,6 +39,12 @@ const makeThumbnail = (id) => {
     makeThumbnailForm.post('/images/thumbnail');
 }
 
+let editor = ref(null);
+const addImage = (src) => {
+    src = getSrcAttr(src);
+    editor.value.addImg(src);
+}
+
 </script>
 <template>
     <Head>
@@ -121,7 +127,7 @@ const makeThumbnail = (id) => {
 
                 <div class="pt-10 relative">
                     <div v-if="form.errors.html">{{ form.errors.html }}</div>
-                    <editor v-model="form.html" class=""></editor>
+                    <editor v-model="form.html" class="" ref="editor"></editor>
                 </div>
             </form>
         </section>
