@@ -4,6 +4,8 @@
 
 <script>
 import StarterKit from '@tiptap/starter-kit'
+import Image from '@tiptap/extension-image';
+
 import { Editor, EditorContent } from '@tiptap/vue-3'
 
 export default {
@@ -25,7 +27,6 @@ export default {
             editor: null,
         }
     },
-
     watch: {
         modelValue(value) {
             // HTML
@@ -46,6 +47,7 @@ export default {
         this.editor = new Editor({
             extensions: [
                 StarterKit,
+                Image,
             ],
             editorProps: {
                 attributes: {
@@ -62,7 +64,15 @@ export default {
             },
         })
     },
+    methods: {
+      addImg: function (url){
+          console.log('added')
+          if (url) {
+              this.editor.chain().focus().setImage({ src: url }).run()
+          }
+      }
 
+    },
     beforeUnmount() {
         this.editor.destroy()
     },
