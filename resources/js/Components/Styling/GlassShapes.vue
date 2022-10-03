@@ -1,7 +1,5 @@
 <script setup>
-import { useMouse } from "@vueuse/core";
 
-const { x, y, sourceType } = useMouse();
 </script>
 <template>
     <div class="glass-container absolute w-full h-full z-1">
@@ -28,7 +26,7 @@ export default {
 }
 .rect{
     right: 10%;
-    top: 15%;
+    top: 0%;
     width: 15rem;
     height: 15rem;
     border-radius: 20px;
@@ -44,7 +42,7 @@ export default {
     animation: breathe-effect infinite 7s ease-in-out alternate;
 }
 .rect-large {
-    right: 30%;
+    left: -5%;
     top: 30%;
     width: 30rem;
     height: 13rem;

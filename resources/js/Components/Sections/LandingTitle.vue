@@ -3,8 +3,6 @@ import { onMounted, ref } from "vue";
 import FadedCircle from "@/Components/Styling/FadedCircle.vue";
 import RGBRibbon from "@/Components/Styling/RGBRibbon.vue";
 import GlassShapes from "@/Components/Styling/GlassShapes.vue";
-import { Link } from "@inertiajs/inertia-vue3";
-import ButtonSmall from "@/Components/Buttons/ButtonSmall.vue";
 import HalftoneBackground from "@/Components/Styling/HalftoneBackground.vue";
 
 let name = ref(null);
@@ -15,7 +13,6 @@ let firstLetterToRGB = (el) => {
         "0,30,255"
     ]
     let colorVariation = 0;
-    console.log(el)
     let words = el.innerText.split(" ");
     el.innerHTML = "";
     for (let i = 0; i < words.length; i++){
@@ -43,18 +40,21 @@ let birthday = new Date('Juli 12, 2005')
 let date = new Date();
 let age = date.getFullYear() - birthday.getFullYear();
 
-onMounted(() => {
+/*onMounted(() => {
     firstLetterToRGB(name.value)
-})
+})*/
 </script>
 <template>
     <div class="relative">
-        <div class="screen w-full flex items-center">
+        <div class="screen w-full flex items-center justify-center">
             <!--     Main content       -->
-            <div class="z-10">
-                <h1 ref="name" class="text-3xl md:text-6xl font-bold z-[99] filter-shadow text-center md:text-left">Chris van Lier</h1>
-                <p class="font-medium text-center md:text-left filter-shadow">Hello, i'm a <span class="text-pink-500">full-stack</span> student developer.</p>
-                <p class="mb-3 text-center md:text-left filter-shadow">Also i'm <span class="text-amber-400">{{ age }}</span> Years old.</p>
+            <div class="z-10 text-center">
+                <p class="text-center text-lg">Hi, my name is</p>
+                <h1 ref="name" class="text-3xl md:text-8xl font-bold z-[99]
+                filter-shadow text-center
+                md:text-left
+                gradient-text">Chris van Lier</h1>
+                <p class="text-lg">I'm a Student Software Development</p>
             </div>
             <halftone-background></halftone-background>
             <!--     Faded circles in the background       -->
@@ -77,7 +77,7 @@ export default {
 
 <style scoped>
 .filter-shadow{
-    filter: drop-shadow(0px 0px 4px black);
+    filter: drop-shadow(0px 5px 7px #000000);
 }
 .screen{
     height: calc(100vh - 3.5rem);

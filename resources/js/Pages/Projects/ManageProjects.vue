@@ -29,7 +29,7 @@ defineProps({
             </section>
         </template>
         <div class="py-12">
-            <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-[50vh] relative z-[99] gap-6 p-6 pt-12">
+            <div class="grid sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 min-h-[50vh] relative z-[99] gap-6 p-6 pt-12">
                 <GridCardManage v-for="project in projects" :project="project"></GridCardManage>
 
             </div>

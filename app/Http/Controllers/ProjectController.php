@@ -66,7 +66,7 @@ class ProjectController extends Controller
 
     // -------- Additional functions --------
     public function manage(){
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->with('thumbnail')->get();
         return Inertia::render('Projects/ManageProjects', [
             'projects' => $projects
         ]);

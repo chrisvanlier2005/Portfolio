@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -15,36 +16,23 @@ class ImageController extends Controller
         return response()->json($images);
     }
 
-    public function storeImage(Request $request)
+    public function store(Request $request)
     {
-        $id = $request->id;
+        $id = $request->project_id;
         $path = $request->file('image')->store('public/images');
-
-        $image = Image::create([
+        Image::create([
             "project_id" => $id,
             "src" => $path
         ]);
-
         return redirect()->route('projects.edit', $id);
     }
-
-    public function makeThumbnail(Request $request){
-        $image = $this->getImageById($request->id);
-        $image->update([
-           "thumbnail" => true
-        ]);
-        return redirect()->route('projects.edit', $request->id);
+    /* delete from */
+    public function destroy(Image $image, Request $request)
+    {
+        $id = $request->project_id;
+        Storage::delete($image->src);
+        $image->delete();
+        return redirect()->to('/projects/'.$id.'/edit');
     }
 
-    public function removeThumbnail(Request $request){
-        $image = $this->getImageById($request->id);
-        $image->update([
-            "thumbnail" => false
-        ]);
-        return redirect()->route('projects.edit', $request->id);
-    }
-
-    public function getImageById($id){
-        return Image::findOrFail($id);
-    }
 }

@@ -27,11 +27,9 @@ Route::get('/contact', [Controller::class, 'contact'])->name('contact');
 Route::get('/internship', [Controller::class, 'internship'])->name('internship');
 
 /* -------- projects -------- */
-Route::post('/projects/{project}/image', [ImageController::class, 'storeImage'])->name('projects.images.store'); // storing images
-Route::post('/images/thumbnail', [ImageController::class, 'makeThumbnail'])->name('projects.images.thumbnail'); // making a image the thumbnail
 Route::get('/projects/manage', [ProjectController::class, 'manage'])->name('manage');
 Route::resource('projects', ProjectController::class);
-
+Route::resource('/images', ImageController::class);
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

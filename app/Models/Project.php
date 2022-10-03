@@ -15,6 +15,6 @@ class Project extends Model
     }
 
     public function thumbnail(){
-        return $this->hasOne(Image::class)->where('thumbnail', true);
+        return $this->hasOne(Image::class);
     }
 }
