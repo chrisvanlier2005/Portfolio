@@ -9,6 +9,7 @@ import GridCardSmall from "@/Components/Grid/Cards/GridCardSmall.vue";
 import GridCardLarge from "@/Components/Grid/Cards/GridCardLarge.vue";
 import RGBRibbon from "@/Components/Styling/RGBRibbon.vue";
 import ButtonMedium from "@/Components/Buttons/ButtonMedium.vue";
+import fadedCircle from "@/Components/Styling/FadedCircle.vue";
 const props = defineProps({
     projects: Array
 })
@@ -46,6 +47,8 @@ const props = defineProps({
             <div class="w-full flex justify-center pb-3">
                 <ButtonMedium :href="route('projects.index')" as="a">Want to see more?</ButtonMedium>
             </div>
+            <faded-circle style="z-index: -1; background: linear-gradient(#ff00f2, #ca00ff);width: 40rem; height: 40rem;filter: blur(300px); left: -20%; top: 20%" class="circle-1"></faded-circle>
+
         </section>
         <!--    About me section    -->
         <section class="py-16">
