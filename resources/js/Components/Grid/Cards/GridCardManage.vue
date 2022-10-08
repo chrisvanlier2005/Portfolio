@@ -2,10 +2,11 @@
 import ButtonSmall from "@/Components/Buttons/ButtonSmall.vue";
 
 function useImage(image) {
-    if (image !== undefined) {
-        return image.src.replace('public', '/storage');
+    if (image) {
+        return image.src.replace("public", "/storage");
+    } else {
+        return "https://via.placeholder.com/150";
     }
-    return "https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=";
 }
 
 function imageSource(link) {
@@ -15,14 +16,14 @@ function imageSource(link) {
 defineProps({
     project: {
         type: Object
-
     }
 });
 </script>
 <template>
 
-    <div v-if="project" class="w-full h-full p-6 relative shadow-xl flex flex-col justify-center">
-        <img :alt="project.title" :src="useImage(project.thumbnail)" class="mb-3 rounded-xl" loading="lazy">
+    <div v-if="project" class="w-full h-fit p-6 relative shadow-xl flex flex-col justify-center border border-gray-300 rounded-xl">
+
+        <img :alt="project.title" :src="useImage(project.thumbnail)" class="mb-3 rounded-xl aspect-square object-cover" loading="lazy">
         <h1 class="text-xl font-semibold">{{ project.title }}</h1>
         <div class="flex gap-3 w-full">
             <button-small :href="'/projects/' + project.id" as="button" method="delete">Delete</button-small>

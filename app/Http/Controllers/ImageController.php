@@ -18,8 +18,11 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:12048',
+        ]);
         $id = $request->project_id;
-        $path = $request->file('image')->store('public/images');
+        $path = $request->file('image')->store('public/projects/' . $id);
         Image::create([
             "project_id" => $id,
             "src" => $path

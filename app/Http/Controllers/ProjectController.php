@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Storage;
 
 class ProjectController extends Controller
 {
@@ -15,14 +17,12 @@ class ProjectController extends Controller
 
     public function index(){
         $projects = Project::orderBy('created_at', 'desc')->with('images')->get();
-        return Inertia::render('Projects/Projects', ['projects' => $projects]);
+        return Inertia::render('Projects', compact('projects'));
     }
 
     public function show($id){
         $project = Project::findOrFail($id);
-        return Inertia::render('Projects/ShowProject', [
-            'project' => $project
-        ]);
+        return Inertia::render('Projects/ShowProject', compact('project'));
     }
 
     public function create(){
@@ -60,6 +60,9 @@ class ProjectController extends Controller
 
     public function destroy($id){
         $project = Project::findOrFail($id);
+        // remove all images from storage and database
+        Storage::deleteDirectory('public/projects/' . $project->id);
+        $project->images()->delete();
         $project->delete();
         return redirect(route('manage'));
     }

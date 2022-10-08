@@ -1,6 +1,6 @@
 <script setup>
 import Layout from '../Layouts/Layout.vue';
-import { Head, usePage } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/inertia-vue3";
 import LandingTitle from "@/Components/Sections/LandingTitle.vue";
 import SectionTitle from "@/Components/Typography/SectionTitle.vue";
 import GridItemSmall from "@/Components/Grid/GridItemSmall.vue";
@@ -9,7 +9,7 @@ import GridCardSmall from "@/Components/Grid/Cards/GridCardSmall.vue";
 import GridCardLarge from "@/Components/Grid/Cards/GridCardLarge.vue";
 import RGBRibbon from "@/Components/Styling/RGBRibbon.vue";
 import ButtonMedium from "@/Components/Buttons/ButtonMedium.vue";
-defineProps({
+const props = defineProps({
     projects: Array
 })
 </script>
@@ -20,10 +20,10 @@ defineProps({
     </Head>
     <Layout>
         <LandingTitle></LandingTitle>
-        <section class="z-[99] relative">
+        <section class="z-[99] relative max-w-[1400px] mx-auto">
             <section-title>Recent Projects</section-title>
             <p>Interested to see what i've been doing? Here are my most recent projects!</p>
-            <div class="z-1 grid grid-cols-1 md:grid-cols-2 grid-rows-2 h-[110rem] md:h-[40rem] gap-7 py-4 relative">
+            <div class="z-1 grid grid-cols-1 md:grid-cols-2 grid-rows-2 h-[110rem] max-h-[40rem] gap-7 py-4 relative ">
                 <!--        For medium screens        -->
                 <GridItemSmall class="md:hidden">
                     <GridCardSmall  v-if="projects[0]" :project="projects[0]"></GridCardSmall>
@@ -42,7 +42,7 @@ defineProps({
             <r-g-b-ribbon style="
             transform: skew(30deg, 0deg) rotate(-160deg) scaleY(1.5);
             top: 50%;
-            left: -50%" class="z-[-1]"></r-g-b-ribbon>
+            left: -80%" class="z-[-1]"></r-g-b-ribbon>
             <div class="w-full flex justify-center pb-3">
                 <ButtonMedium :href="route('projects.index')" as="a">Want to see more?</ButtonMedium>
             </div>
@@ -55,13 +55,3 @@ defineProps({
         <!--    Contact section    -->
     </Layout>
 </template>
-
-<script>
-export default {
-    name: "Index"
-}
-</script>
-
-<style scoped>
-
-</style>

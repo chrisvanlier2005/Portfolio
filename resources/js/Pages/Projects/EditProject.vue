@@ -1,6 +1,6 @@
 <script setup>
 import BreezeButton from "@/Components/Breeze/Button.vue";
-import Image from "@/Classes/Image.js";
+import { Image } from "@/Classes/Image.js";
 import { Head, useForm } from "@inertiajs/inertia-vue3";
 import Editor from "@/Components/Typography/Editor.vue";
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
@@ -56,7 +56,7 @@ const addImage = (src) => {
             </section>
         </template>
 
-        <section class="popup fixed top-0 left-0 w-screen h-screen z-[98] flex justify-center items-center" v-if="showImageForm">
+        <section class="popup fixed top-0 left-0 w-screen h-screen z-[98] flex justify-center items-center " v-if="showImageForm">
             <article class="bg-white w-96 h-96 rounded-xl shadow-xl relative p-2">
                 <!--      Todo: make button component          -->
                 <div @click="showImageForm = false"
@@ -72,7 +72,7 @@ const addImage = (src) => {
                 </form>
             </article>
         </section>
-        <section class="px-24">
+        <section class="px-24 max-w-[1400px] mx-auto">
             <form @submit.prevent="submit" class="mt-20 relative">
                 <BreezeButton class="absolute top-[-55px] right-0" :class="{ 'opacity-25': form.processing }"
                               :disabled="form.processing" name="submitBtn">Save & Upload
@@ -111,7 +111,7 @@ const addImage = (src) => {
                         </div>
                         <!--             Images and Thumbnails               -->
                         <section class="grid grid-cols-2 gap-6 overflow-y-scroll h-96">
-                            <div v-for="image in project.images" class="w-full h-34 relative">
+                            <div v-for="image in project.images" class="w-full aspect-square cover  relative">
                                 <img :src="getSrcAttr(image.src)" @click="addImage(image.src)" alt="image" class="aspect-square cursor-pointer h-full object-cover rounded-xl shadow-md"/>
                                 <a @click="imageForm.remove(image.id)" class=" absolute top-2 left-2 inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">X</a>
                             </div>
@@ -148,10 +148,20 @@ export default {
 
 <style>
 .ProseMirror{
- @apply bg-white p-10;
+    min-height: 500px;
+    @apply border-gray-300 border p-3 rounded-xl;
+}
+.ProseMirror > * {
+    @apply m-0;
+}
+.ProseMirror p {
+    @apply text-xl;
+}
+.ProseMirror h1 {
+    @apply text-3xl;
 }
 .ProseMirror > * + * {
-    margin-top: 0.75em;
+    margin: 0 !important;
 }
 .ProseMirror code {
     background-color: rgba(97, 97, 97, 0.1);

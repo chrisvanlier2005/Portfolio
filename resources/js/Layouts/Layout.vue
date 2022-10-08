@@ -37,7 +37,7 @@ export default {
                     </li>
                     <li v-if="loggedIn()" class="flex gap-2">
                         <Link :href="route('dashboard')">Dashboard</Link>
-                        <Link :href="route('logout')" method="POST">Logout</Link>
+                        <Link :href="route('logout')" method="POST" as="button">Logout</Link>
                     </li>
                     <li v-else>
                         <Link :href="route('login')">Login</Link>
@@ -46,7 +46,7 @@ export default {
             </nav>
         </div>'
         <transition name="page" mode="out-in">
-            <main class="relative z-0 pt-14" v-if="animate">
+            <main class="relative z-0" v-if="animate">
                 <slot></slot>
             </main>
         </transition>

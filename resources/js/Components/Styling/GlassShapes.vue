@@ -31,7 +31,7 @@ export default {
     height: 15rem;
     border-radius: 20px;
     transform: rotate(20deg);
-    animation: breathe-effect-reverse infinite 20s ease-in-out alternate;
+    animation: breathe-effect-reverse infinite 30s ease-in-out alternate;
 }
 .circle{
     right: 10%;
@@ -39,7 +39,7 @@ export default {
     width: 13rem;
     height: 13rem;
     border-radius: 50%;
-    animation: breathe-effect infinite 7s ease-in-out alternate;
+    animation: breathe-effect infinite 13s ease-in-out alternate;
 }
 .rect-large {
     left: -5%;
@@ -47,7 +47,7 @@ export default {
     width: 30rem;
     height: 13rem;
     border-radius: 20px;
-    animation: breathe-effect infinite 10s ease-in-out alternate;
+    animation: breathe-effect infinite 15s ease-in-out alternate;
 }
 @keyframes breathe-effect {
     0%{
