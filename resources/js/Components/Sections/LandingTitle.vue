@@ -9,8 +9,11 @@ import { LetterManipulation } from "@/Classes/ui/LetterManipulation";
 let birthday = new Date('Juli 12, 2005')
 let date = new Date();
 let age = date.getFullYear() - birthday.getFullYear();
-
-
+const title = ref(null);
+onMounted(() => {
+    const Manipulation = new LetterManipulation(title);
+    Manipulation.firstLetterToRGB()
+})
 </script>
 <template>
     <div class="relative">
@@ -18,9 +21,9 @@ let age = date.getFullYear() - birthday.getFullYear();
             <!--     Main content       -->
             <div class="z-10 text-center">
                 <p class="text-center text-lg filter-shadow">Hi, my name is</p>
-                <h1 ref="title" class="text-3xl md:text-8xl font-bold z-[99]
+                <h1 ref="title" id="title" class="text-3xl md:text-8xl font-extrabold z-[99]
                 filter-shadow text-center
-                md:text-left gradient-text
+                md:text-left
                 ">Chris van Lier</h1>
                 <p class="text-lg font-semibold filter-shadow">I'm a Student Software Development</p>
             </div>
@@ -28,7 +31,6 @@ let age = date.getFullYear() - birthday.getFullYear();
             <!--     Faded circles in the background       -->
             <faded-circle style="background: linear-gradient(red, orange);width: 40rem; height: 40rem;filter: blur(300px); left: 20%" class="circle-1"></faded-circle>
             <faded-circle style="background: linear-gradient(blue, lightskyblue); width: 30rem; height: 30rem; filter: blur(190px); right: 20%" class="circle-2"></faded-circle>
-            <GlassShapes class="z-[1]"></GlassShapes>
             <r-g-b-ribbon style="
             transform: skew(30deg, 0deg) rotate(-9deg);
             top: 70%;

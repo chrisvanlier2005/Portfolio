@@ -1,12 +1,12 @@
 export class LetterManipulation {
-    rgbColors = ['0,0,255', '0,255,0', '255,0,0', '255,255,0', '255,0,255', '0,255,255', '255,255,255', '0,0,0'];
+    rgbColors = ['255,0,0', '0,255,0', '0,0,255', '255,255,0', '255,0,255', '0,255,255', '255,255,255', '0,0,0'];
     constructor(ref) {
         console.log(ref)
         this.el = ref.value;
     }
     firstLetterToRGB(){
         console.log(this.el)
-        const words = this.el.split(" ");
+        const words = this.el.innerText.split(" ");
         let newWords = [];
         for (let i = 0; i < words.length; i++) {
             const word = words[i];
@@ -16,7 +16,7 @@ export class LetterManipulation {
             firstLetterRGB.innerText = firstLetter;
             newWords.push(firstLetterRGB.outerHTML + word.substring(1));
         }
-        return newWords.join(" ");
+        this.el.innerHTML = newWords.join(" ");
     }
 
 }
