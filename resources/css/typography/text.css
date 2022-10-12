@@ -3,3 +3,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+#title span {
+    transition: font-size 0.5s;
+}
+#title span:hover {
+    font-size: 1.2em;
+}
