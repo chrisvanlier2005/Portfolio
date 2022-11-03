@@ -53,20 +53,22 @@ const props = defineProps({
         <!--    About me section    -->
         <section class="z-[99] relative max-w-[1400px] mx-auto my-24">
             <section-title>About me</section-title>
-            <div class="flex gap-4  items-center">
+            <div class="flex gap-4 items-center">
                 <div class="glassMorph p-4 my-3 w-2/3">
                     <h3 class="text-lg font-semibold">Personal information</h3>
                     <p>My name is Chris van Lier, i am 17 years old.</p>
                     <p>I am currently studying software development at Grafisch Lyceum Rotterdam.</p>
                     <p>Other than that i am a passionate developer, i love to learn new things and i am always looking for new challenges and to experiment.</p>
                     <p>Currently my main focus is on web development, but i am also interested in mobile app development.</p>
-                    <p class="font-semibold">My main programming languages are:</p>
+                    <hr class="my-3 opacity-25">
+                    <p class="font-semibold mt-2">My main programming languages are:</p>
                     <ul class="list-disc ml-6">
                         <li>PHP</li>
                         <li>C#</li>
                         <li>JavaScript</li>
                     </ul>
-                    <p class="font-semibold">Main frameworks:</p>
+                    <hr class="my-3 opacity-25">
+                    <p class="font-semibold mt-2">Main frameworks:</p>
                     <ul class="list-disc ml-6">
                         <li>Laravel</li>
                         <li>Vue</li>
@@ -74,10 +76,16 @@ const props = defineProps({
                     </ul>
                     <p>Of course i am always open to learn new things.</p>
                 </div>
-                <div class="glassMorph my-3 w-1/3 rounded-full h-fit  p-3">
-                    <img src="/img/profile/profile_picture.jpg" alt="Profile picture" class="w-full rounded-full aspect-square hover:scale-110 duration-150 transition-transform">
+                <div class="glassMorph my-3 w-1/3 rounded-full h-fit  p-6">
+                    <img src="/img/profile/profile_picture.jpg" alt="Profile picture" class="w-full rounded-full aspect-square hover:scale-[107%] duration-150 ease-out transition-all">
                 </div>
             </div>
+            <faded-circle style="z-index: -1; background: linear-gradient(#ff00f2, #ca00ff);width: 40rem; height: 40rem;filter: blur(300px); left: -20%; top: 20%" class="circle-1"></faded-circle>
+            <faded-circle style="z-index: -1; background: linear-gradient(#00ff22, #fff200);width: 40rem; height: 40rem;filter: blur(300px); right: -20%; bottom: 20%" class="circle-2"></faded-circle>
+            <r-g-b-ribbon style="
+            transform: skew(30deg, 0deg) rotate(-160deg) scaleY(1.5);
+            top: 50%;
+            right: -80%" class="z-[-1]"></r-g-b-ribbon>
         </section>
         <!--    Contact section    -->
     </Layout>
