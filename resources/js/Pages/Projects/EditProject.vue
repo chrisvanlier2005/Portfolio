@@ -58,7 +58,6 @@ const addImage = (src) => {
 
         <section class="popup fixed top-0 left-0 w-screen h-screen z-[98] flex justify-center items-center " v-if="showImageForm">
             <article class="bg-white w-96 h-96 rounded-xl shadow-xl relative p-2">
-                <!--      Todo: make button component          -->
                 <div @click="showImageForm = false"
                     class="absolute top-1 right-1 rounded-full hover:bg-gray-300 cursor-pointer">
                     <IconX/>

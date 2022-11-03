@@ -16,7 +16,6 @@ export default {
 .ribbon-container{
     position: absolute;
     width: 120vw;
-
 }
 .ribbon-container div{
     box-shadow: 0 5px 10px black;
@@ -25,6 +24,7 @@ export default {
     width: 80%;
     height: 20px;
     margin: auto;
+
 }
 .ribbon-container div:nth-child(2){
     width: 70%;
@@ -46,4 +46,5 @@ export default {
 .blue{
     background:blue;
 }
+
 </style>
