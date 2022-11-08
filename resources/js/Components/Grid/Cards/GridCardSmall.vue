@@ -20,22 +20,10 @@
  const createdAt = ref(null)
  onMounted(() => {
      const date = new Date(props.project.created_at)
-     console.log(date)
      createdAt.value.innerText = `Created: ${date.toLocaleDateString()}`
  });
 </script>
 <template>
-<!--    <div v-if="project" class="glass w-full h-full p-6 relative">
-        <img v-if="project.images[0]" :src="imageSource(project.images[0].src)" :alt="project.title" class="mb-3 rounded-xl" loading="lazy">
-        <img v-else :src="useImage(project.image)" :alt="project.title" class="mb-3 rounded-xl" loading="lazy">
-        <h1 class="text-xl font-semibold">{{ project.title }}</h1>
-        <p class="text-sm lg:text-md">{{ project.description }}</p>
-        <button-small :href="'/projects/' + project.id" class="absolute bottom-3 right-6">Read More</button-small>
-    </div>
-    <div v-else class="glass w-full h-full p-6 relative">
-        <h1 class="text-xl font-semibold pb-3"><slot name="title"></slot></h1>
-        <div><slot name="content"></slot></div>
-    </div>-->
     <article class="shadow-lg shadow-rose-700
     h-full w-full rounded-xl
     overflow-hidden

@@ -27,6 +27,7 @@
         "@tiptap/starter-kit": "^2.0.0-beta.191",
         "@tiptap/vue-3": "^2.0.0-beta.96",
         "@vueuse/core": "^9.0.2",
-        "tinymce": "^6.1.2"
+        "tinymce": "^6.1.2",
+        "vue-sweetalert2": "^5.0.5"
     }
 }

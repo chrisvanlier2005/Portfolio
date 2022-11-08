@@ -4,7 +4,7 @@ import { onMounted, ref } from "vue";
 let links = [
     { text: "Home", href: route('home') },
     { text: "Projects", href: route('projects.index') },
-    { text: "About me", href: route('about-me') },
+    { text: "About me", href: route('home') + "#about" },
     { text: "Contact", href: route('contact') }
 ];
 
@@ -33,7 +33,11 @@ export default {
                 <h1 class="text-xl" ref="title"><Link :href="route('home')">Chris van Lier</Link></h1>
                 <ul class=" gap-7 hidden md:flex">
                     <li v-for="link in links">
-                        <Link :href="link.href">{{ link.text }}</Link>
+                        <!--       navigate with preserve scroll    -->
+
+                        <Link v-if="link.text === 'About me'" preserve-scroll :href="link.href">{{link.text}}</Link>
+                        <Link v-else :href="link.href">{{ link.text }}</Link>
+
                     </li>
                     <li v-if="loggedIn()" class="flex gap-2">
                         <Link :href="route('dashboard')">Dashboard</Link>

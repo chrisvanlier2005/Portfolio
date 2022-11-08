@@ -1,11 +1,9 @@
 export class LetterManipulation {
     rgbColors = ['255,0,0', '0,255,0', '0,0,255', '255,255,0', '255,0,255', '0,255,255', '255,255,255', '0,0,0'];
     constructor(ref) {
-        console.log(ref)
         this.el = ref.value;
     }
     firstLetterToRGB(){
-        console.log(this.el)
         const words = this.el.innerText.split(" ");
         let newWords = [];
         for (let i = 0; i < words.length; i++) {
