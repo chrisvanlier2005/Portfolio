@@ -9,8 +9,7 @@
                              gap="10"
                              align="center"
                              responsive="responsive"
-                             responsive-breakpoint="lg"
-            >
+                             responsive-breakpoint="lg">
                 <Image alt="Laravel Logo"
                        class="w-24 h-auto"
                        src="/img/logo/PHP-logo.png"></Image>
@@ -33,6 +32,21 @@
                 <VerticalStack justify="center">
                     <h1 class="text-2xl">Javascript</h1>
                     <p class="text-sm">My first language, in combination with HTML and CSS</p>
+                </VerticalStack>
+            </HorizontalStack>
+        </ListItem>
+        <ListItem>
+            <HorizontalStack class="bg-white shadow-md rounded-xl p-5 text-black"
+                             gap="10"
+                             align="center"
+                             responsive="responsive"
+                             responsive-breakpoint="lg">
+                <Image alt="Laravel Logo"
+                       class="w-24 h-auto rounded-md"
+                       src="/img/logo/csharp-logo.png"></Image>
+                <VerticalStack justify="center">
+                    <h1 class="text-2xl">C#</h1>
+                    <p class="text-sm">C# is probably my preferred language when it comes to back end. position is also shared with PHP</p>
                 </VerticalStack>
             </HorizontalStack>
         </ListItem>

@@ -12,7 +12,7 @@ import ButtonMedium from "@/Components/Buttons/ButtonMedium.vue";
 import FadedCircle from "@/Components/Styling/FadedCircle.vue";
 import FrameworkSection from "@/Components/Sections/FrameworkSection.vue";
 import LanguageSection from "@/Components/Sections/LanguageSection.vue";
-const props = defineProps({
+defineProps({
     projects: Array
 });
 
@@ -46,29 +46,26 @@ const props = defineProps({
             <r-g-b-ribbon class="z-[-1]" style="
             transform: skew(30deg, 0deg) rotate(-160deg) scaleY(1.5);
             top: 50%;
-            left: -80%"></r-g-b-ribbon>
+            left: -80%"/>
             <div class="w-full flex justify-center pb-3 my-6">
                 <ButtonMedium :href="route('projects.index')" as="a">Want to see more?</ButtonMedium>
             </div>
             <FadedCircle
                 class="circle-1"
-                style="z-index: -1; background: linear-gradient(#ff00f2, #ca00ff);width: 40rem; height: 40rem;filter: blur(300px); left: -20%; top: 20%"></FadedCircle>
+                style="z-index: -1; background: linear-gradient(#ff00f2, #ca00ff);width: 40rem; height: 40rem;filter: blur(300px); left: -20%; top: 20%"/>
 
         </section>
         <section class="my-24
                         mx-auto
                         max-w[1400px] z-[100]
                         relative">
-            <section-title>What I do</section-title>
+            <SectionTitle>What I do & experiences</SectionTitle>
             <p class="mb-10">Here are some of the things I do</p>
-            <!--     Frameworks       -->
             <div class="mb-5">
                 <h2 class="text-2xl font-semibold">Frameworks</h2>
-                <p>Here are some of the frameworks / libraries I use / used</p>
+                <p>Here are some of the frameworks / libraries I use or have used</p>
             </div>
-            <FrameworkSection></FrameworkSection>
-
-            <!--     Languages       -->
+            <FrameworkSection/>
             <div class="mb-5 mt-12">
                 <h2 class="text-2xl font-semibold">Languages</h2>
                 <p>Here are some of the languages I use / used</p>
@@ -77,7 +74,7 @@ const props = defineProps({
             <r-g-b-ribbon class="z-[-1]" style="
             transform: skew(30deg, 0deg) rotate(-160deg) scaleY(1.5);
             top: 75%;
-            left: -80%"></r-g-b-ribbon>
+            left: -80%"/>
         </section>
         <!--    About me section    -->
         <section class="z-[99] relative max-w-[1400px] mx-auto my-24">
@@ -114,14 +111,14 @@ const props = defineProps({
             </div>
             <faded-circle
                 class="circle-1"
-                style="z-index: -1; background: linear-gradient(#ff00f2, #ca00ff);width: 40rem; height: 40rem;filter: blur(300px); left: -20%; top: 20%"></faded-circle>
+                style="z-index: -1; background: linear-gradient(#ff00f2, #ca00ff);width: 40rem; height: 40rem;filter: blur(300px); left: -20%; top: 20%"/>
             <faded-circle
                 class="circle-2"
-                style="z-index: -1; background: linear-gradient(#00ff22, #fff200);width: 40rem; height: 40rem;filter: blur(300px); right: -20%; bottom: 20%"></faded-circle>
+                style="z-index: -1; background: linear-gradient(#00ff22, #fff200);width: 40rem; height: 40rem;filter: blur(300px); right: -20%; bottom: 20%"/>
             <r-g-b-ribbon class="z-[-1]" style="
             transform: skew(30deg, 0deg) rotate(-160deg) scaleY(1.5);
             top: 50%;
-            right: -80%"></r-g-b-ribbon>
+            right: -80%"/>
         </section>
         <!--    Contact section    -->
     </Layout>
